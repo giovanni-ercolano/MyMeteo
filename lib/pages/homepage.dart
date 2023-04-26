@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:my_meteo/pages/Preferite_page.dart';
-import 'package:my_meteo/pages/profilePage.dart';
-import 'package:my_meteo/pages/weather.dart';
+import 'package:MyMeteo/pages/Preferite_page.dart';
+import 'package:MyMeteo/pages/profilePage.dart';
+import 'package:MyMeteo/pages/weather.dart';
 
 import 'appbar.dart';
 
