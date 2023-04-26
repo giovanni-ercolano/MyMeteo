@@ -11,7 +11,8 @@ class _PreferitePageState extends State<PreferitePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('Preferite'),
+      backgroundColor: Colors.deepPurpleAccent,
+      body: Center(child: Text('Preferite')),
     );
   }
 }

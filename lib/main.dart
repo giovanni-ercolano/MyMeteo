@@ -1,6 +1,15 @@
+import 'package:MyMeteo/pages/authpage.dart';
 import 'package:flutter/material.dart';
-import 'package:MyMeteo/pages/homepage.dart';
-void main() {
+import 'package:MyMeteo/homepage.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase/auth.dart';
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MainApp());
 }
 
@@ -14,7 +23,16 @@ class MainApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.deepPurpleAccent,
         resizeToAvoidBottomInset: false,
-        body: HomePage(),
+        body: StreamBuilder(
+          stream: Auth().authStateChanges,
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            if (snapshot.hasData) {
+              return HomePage();
+            } else {
+              return const AuthPage();
+            }
+          },
+        ),
       ),
     );
   }

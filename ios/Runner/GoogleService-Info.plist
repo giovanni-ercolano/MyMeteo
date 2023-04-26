@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>962119603372-gqq15v64r7urpsnvjrh6n98vb6n5evcq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.962119603372-gqq15v64r7urpsnvjrh6n98vb6n5evcq</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC8t1KPj0JQdCvwl6v2oUqlvjVdjNZUX8E</string>
+	<key>GCM_SENDER_ID</key>
+	<string>962119603372</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.myMeteo</string>
+	<key>PROJECT_ID</key>
+	<string>mymeteo-147a3</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mymeteo-147a3.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:962119603372:ios:241e26f2e90f2665f5bb09</string>
+</dict>
+</plist>
