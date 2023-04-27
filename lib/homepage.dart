@@ -4,7 +4,7 @@ import 'package:MyMeteo/pages/Preferite_page.dart';
 import 'package:MyMeteo/pages/profilePage.dart';
 import 'package:MyMeteo/pages/weather.dart';
 
-import 'appbar.dart';
+import 'pages/appbar.dart';
 
 
 //db518e808bfe7200a4e13efd59891f54
