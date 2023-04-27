@@ -21,7 +21,7 @@ class _AuthPageState extends State<AuthPage> {
   Future<void> signIn() async {
     try {
       await Auth().signInWithEmailAndPassword(
-        email: _usernameController.text,
+        email: _usernameController.text.trim(),
         password: _passwordController.text,
       );
     } on FirebaseAuthException catch (e) {
