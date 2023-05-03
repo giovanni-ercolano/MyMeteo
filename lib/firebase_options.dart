@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -48,6 +45,16 @@ class DefaultFirebaseOptions {
         );
     }
   }
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyCvEe__OfOFrTyZ5WfTYorvhGnT8taqGM4',
+    appId: '1:962119603372:web:ed5c3e749f068e8cf5bb09',
+    messagingSenderId: '962119603372',
+    projectId: 'mymeteo-147a3',
+    authDomain: 'mymeteo-147a3.firebaseapp.com',
+    storageBucket: 'mymeteo-147a3.appspot.com',
+    measurementId: 'G-5CFN42KSDL',
+  );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAN2o9nSkp9gkd-zdD5cu07riJMQbWg__4',

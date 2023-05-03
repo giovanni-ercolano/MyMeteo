@@ -29,6 +29,13 @@
             {
               "client_id": "962119603372-t8iheek4abf3c12tqa55pdca356p3b15.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "962119603372-gqq15v64r7urpsnvjrh6n98vb6n5evcq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myMeteo"
+              }
             }
           ]
         }
