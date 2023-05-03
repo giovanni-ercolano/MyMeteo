@@ -1,9 +1,22 @@
+import 'package:MyMeteo/firebase/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import '../firebase/auth.dart';
 
 class ProfilePage extends StatelessWidget {
   Future<void> logout() async {
     await Auth().signOut();
+  }
+
+  void logLogoutEvent() {
+    AnalyticsService.analytics.logEvent(
+      name: 'logout',
+    );
+  }
+
+  void logTestEvent() {
+    AnalyticsService.analytics.logEvent(
+      name: 'settings',
+    );
   }
 
   @override
@@ -47,6 +60,7 @@ class ProfilePage extends StatelessWidget {
               ElevatedButton.icon(
                 onPressed: () {
                   // TODO: navigate to settings page
+                  logTestEvent();
                 },
                 icon: Icon(Icons.settings),
                 label: const Text('Settings'),
@@ -61,6 +75,7 @@ class ProfilePage extends StatelessWidget {
               const SizedBox(height: 24),
               ElevatedButton.icon(
                 onPressed: () {
+                  logLogoutEvent();
                   logout();
                 },
                 icon: Icon(Icons.logout),

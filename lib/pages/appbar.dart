@@ -6,11 +6,11 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
     return AppBar(
       backgroundColor: Colors.pinkAccent,
       title: Expanded(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Text("MyMeteo")
-          ],
+        child: Container(
+          alignment: Alignment.center,
+          child: const Text(
+            'MyMeteo',
+          ),
         ),
       ),
     );

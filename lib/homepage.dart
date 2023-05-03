@@ -3,11 +3,10 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:MyMeteo/pages/Preferite_page.dart';
 import 'package:MyMeteo/pages/profilePage.dart';
 import 'package:MyMeteo/pages/weather.dart';
+import 'package:MyMeteo/firebase/firebase_analytics.dart';
 
 import 'pages/appbar.dart';
 
-
-//db518e808bfe7200a4e13efd59891f54
 class HomePage extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -65,6 +64,13 @@ class _HomeState extends State<HomePage> {
                   selectedIndex: _selectedIndex,
                   onTabChange: (index) => setState(() {
                     _selectedIndex = index;
+                    // Traccia l'evento quando un tab viene cliccato
+                    AnalyticsService.analytics.logEvent(
+                      name: 'click_tab',
+                      parameters: <String, dynamic>{
+                        'tab_index': index,
+                      },
+                    );
                   }),
                 ),
               ),

@@ -1,7 +1,8 @@
 import 'dart:convert';
+import 'package:MyMeteo/firebase/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
+import 'package:firebase_analytics/firebase_analytics.dart';
 import '../widget/getWeatherColor.dart';
 import '../widget/getWeatherIcon.dart';
 
@@ -52,11 +53,28 @@ class _WeatherPageState extends State<WeatherPage>
   Future<void> _fetchWeatherData() async {
     final cityName = _cityNameController.text;
     final data = await getWeatherData(cityName);
+    logCitySearchEvent(cityName);
     setState(() {
       _data = data;
     });
   }
 
+  void logCitySearchEvent(String cityName) {
+    AnalyticsService.analytics.logEvent(
+      name: 'search_city',
+      parameters: <String, dynamic>{
+        'city_name': cityName,
+      },
+    );
+    print(AnalyticsService.analytics.logEvent(
+      name: 'search_city',
+      parameters: <String, dynamic>{
+        'city_name': cityName,
+      },
+    ));
+  }
+
+  late final FirebaseAnalytics analytics;
   bool isLoading = false;
 
   @override
