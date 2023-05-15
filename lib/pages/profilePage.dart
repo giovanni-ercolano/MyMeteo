@@ -1,6 +1,9 @@
-import 'package:MyMeteo/firebase/firebase_analytics.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../firebase/auth.dart';
+import 'package:MyMeteo/providers/themeProvider.dart';
+import '../firebase/firebase_analytics.dart';
+import '../providers/themeProvider.dart';
 
 class ProfilePage extends StatelessWidget {
   Future<void> logout() async {
@@ -22,7 +25,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Container(
         alignment: Alignment.center,
         child: Padding(
@@ -42,6 +45,18 @@ class ProfilePage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 24),
+              FloatingActionButton(
+                onPressed: () {
+                  final themeModel =
+                      Provider.of<ThemeModel>(context, listen: false);
+                  themeModel.toggleTheme();
+                },
+                child: Icon(
+                  context.watch<ThemeModel>().isDarkMode
+                      ? Icons.wb_sunny
+                      : Icons.nightlight_round,
+                ),
+              ),
               ElevatedButton.icon(
                 onPressed: () {
                   // TODO: navigate to edit profile page
