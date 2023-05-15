@@ -3,6 +3,8 @@ import 'package:MyMeteo/firebase/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:provider/provider.dart';
+import '../providers/themeProvider.dart';
 import '../widget/getWeatherColor.dart';
 import '../widget/getWeatherIcon.dart';
 
@@ -80,8 +82,11 @@ class _WeatherPageState extends State<WeatherPage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    final _themeModel = ThemeModel();
+    final textFieldFillColorLight = Colors.grey[200];
+    final textFieldFillColorDark = Colors.grey[800];
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -89,19 +94,27 @@ class _WeatherPageState extends State<WeatherPage>
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-              child: TextField(
-                controller: _cityNameController,
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintText: 'Inserisci il nome della città',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontSize: 24),
+              child: Consumer<ThemeModel>(
+                builder: (context, model, child) {
+                  final fillColor = model.isDarkMode
+                      ? textFieldFillColorDark
+                      : textFieldFillColorLight;
+
+                  return TextField(
+                    controller: _cityNameController,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: fillColor,
+                      hintText: 'Inserisci il nome della città',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(fontSize: 24),
+                  );
+                },
               ),
             ),
             Padding(
